@@ -1,0 +1,903 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="NovaTech — Next-generation quantum hardware, high-performance computing, audio acoustics, and spatial wearables." />
+  <meta name="theme-color" content="#07090e" />
+  <title>NovaTech // Next-Gen Hardware & Spatial Computing</title>
+
+  <!-- Google Fonts: Plus Jakarta Sans & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+  <!-- Core Stylesheet -->
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- Announcement Bar -->
+  <div style="background: linear-gradient(90deg, #0f172a 0%, #1e1b4b 50%, #0f172a 100%); border-bottom: 1px solid rgba(255,255,255,0.08); padding: 0.45rem 1rem; text-align: center; font-size: 0.8rem; color: #cbd5e1;">
+    🚀 <strong style="color: var(--accent-cyan);">QUANTUM LAUNCH:</strong> Enjoy Free Worldwide Priority Delivery over $500 • Use promo code <code style="background: rgba(0,242,254,0.15); color: var(--accent-cyan); padding: 2px 6px; border-radius: 4px; font-weight: 700; font-family: var(--font-mono);">NOVAFIRST</code> for 15% off
+  </div>
+
+  <!-- Main Site Header -->
+  <header class="site-header">
+    <div class="header-inner">
+      <!-- Brand Logo -->
+      <a href="#" id="brand-home-link" class="logo-brand">
+        <div class="brand-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+            <polyline points="2 17 12 22 22 17"></polyline>
+            <polyline points="2 12 12 17 22 12"></polyline>
+          </svg>
+        </div>
+        <span class="brand-text">NovaTech<span class="brand-badge">Vault</span></span>
+      </a>
+
+      <!-- Instant Live Search Bar -->
+      <div class="search-wrapper">
+        <div class="search-input-box">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color: var(--text-muted); flex-shrink: 0;">
+            <circle cx="11" cy="11" r="8"></circle>
+            <path d="m21 21-4.3-4.3"></path>
+          </svg>
+          <input type="text" id="search-input" placeholder="Search laptops, spatial headsets, audio, mice, specs..." autocomplete="off" />
+          <span id="search-clear" class="search-clear-btn" title="Clear search">&times;</span>
+        </div>
+      </div>
+
+      <!-- Navigation & Action Buttons -->
+      <div class="nav-actions">
+        <!-- Currency Selector -->
+        <select id="currency-select" class="currency-select" title="Change Currency">
+          <option value="USD">USD ($)</option>
+          <option value="EUR">EUR (€)</option>
+          <option value="GBP">GBP (£)</option>
+          <option value="JPY">JPY (¥)</option>
+        </select>
+
+        <!-- Navigation View Buttons -->
+        <button class="nav-pill-btn active" data-nav-view="store" id="nav-btn-store">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="3" y="3" width="7" height="7"></rect>
+            <rect x="14" y="3" width="7" height="7"></rect>
+            <rect x="14" y="14" width="7" height="7"></rect>
+            <rect x="3" y="14" width="7" height="7"></rect>
+          </svg>
+          Store
+        </button>
+
+        <button class="nav-pill-btn" data-nav-view="orders" id="nav-btn-orders">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+            <polyline points="14 2 14 8 20 8"></polyline>
+            <line x1="16" y1="13" x2="8" y2="13"></line>
+            <line x1="16" y1="17" x2="8" y2="17"></line>
+            <polyline points="10 9 9 9 8 9"></polyline>
+          </svg>
+          My Orders
+        </button>
+
+        <!-- Wishlist Button with Badge -->
+        <button class="icon-badge-btn" data-nav-view="wishlist" title="Saved Wishlist" id="nav-btn-wishlist">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"></path>
+          </svg>
+          <span class="badge-count" id="wishlist-badge-count">0</span>
+        </button>
+
+        <!-- Cart Button with Badge -->
+        <button class="icon-badge-btn" id="cart-toggle-btn" title="View Vault Cart">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="8" cy="21" r="1"></circle>
+            <circle cx="19" cy="21" r="1"></circle>
+            <path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"></path>
+          </svg>
+          <span class="badge-count" id="cart-badge-count">0</span>
+        </button>
+
+        <!-- Admin Portal Switcher -->
+        <button class="nav-pill-btn admin-btn" data-nav-view="admin" id="nav-btn-admin" title="Access Admin Console">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 20h9"></path>
+            <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path>
+          </svg>
+          Admin Console
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main View Container -->
+  <main id="app-main-content">
+    
+    <!-- ==================== VIEW 1: STORE / CATALOG ==================== -->
+    <div id="store-view-section">
+      
+      <!-- Hero Showcase Section -->
+      <section class="hero-section" id="hero-section">
+        <div class="hero-banner">
+          <div>
+            <div class="hero-tag">
+              <span class="pulse-dot"></span>
+              2026 Flagship Release Matrix
+            </div>
+            <h1 class="hero-title">
+              Engineering The <br />
+              <span class="glow-gradient">Quantum Frontier</span>
+            </h1>
+            <p class="hero-subtitle">
+              Precision-crafted workstations, ultra-low latency spatial headsets, and audiophile-grade planar acoustics for boundary-pushing architects and creators.
+            </p>
+            <div class="hero-cta-group">
+              <button class="btn-primary" onclick="document.getElementById('catalog-section').scrollIntoView({ behavior: 'smooth' });">
+                Explore Hardware Vault
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M5 12h14"></path>
+                  <path d="m12 5 7 7-7 7"></path>
+                </svg>
+              </button>
+              <button class="btn-secondary" onclick="App.openQuickView('prod-1')">
+                View QuantumBook 16 Specs
+              </button>
+            </div>
+          </div>
+
+          <!-- Hero Device Card Showcase -->
+          <div class="hero-card-showcase">
+            <div class="hero-glass-device">
+              <img class="hero-device-img" src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=800&q=80" alt="QuantumBook Titan 16" />
+              <div class="hero-device-details">
+                <div>
+                  <span class="card-cat-label">Featured Workstation</span>
+                  <h4 style="font-size: 1.15rem; font-weight: 800; color: #fff;">QuantumBook Titan 16 Pro</h4>
+                  <div class="hero-device-specs">M4 Ultra • 64GB RAM • 120Hz XDR</div>
+                </div>
+                <button class="card-add-btn" onclick="App.quickAddToCart('prod-1')" title="Add to Cart">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <path d="M5 12h14"></path>
+                    <path d="M12 5v14"></path>
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Value Proposition Perks -->
+        <div class="perks-bar">
+          <div class="perk-item">
+            <div class="perk-icon-box">🛡️</div>
+            <div>
+              <div class="perk-title">3-Year QuantumCare</div>
+              <div class="perk-desc">Full comprehensive hardware replacement warranty</div>
+            </div>
+          </div>
+          <div class="perk-item">
+            <div class="perk-icon-box">⚡</div>
+            <div>
+              <div class="perk-title">Sub-24hr Global Dispatch</div>
+              <div class="perk-desc">Climate-controlled cleanroom fulfillment</div>
+            </div>
+          </div>
+          <div class="perk-item">
+            <div class="perk-icon-box">🔒</div>
+            <div>
+              <div class="perk-title">Encrypted Checkout</div>
+              <div class="perk-desc">Zero-knowledge end-to-end tokenized payments</div>
+            </div>
+          </div>
+          <div class="perk-item">
+            <div class="perk-icon-box">↺</div>
+            <div>
+              <div class="perk-title">30-Day Risk Free</div>
+              <div class="perk-desc">Complimentary return shipping & 100% refund</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Products Catalog Section -->
+      <section class="catalog-section" id="catalog-section">
+        
+        <!-- Section Header -->
+        <div class="catalog-header-bar">
+          <div class="section-title-wrap">
+            <h2 id="catalog-section-title">Featured Hardware & Computing</h2>
+            <p>Direct architectural inventory from NovaTech cleanrooms</p>
+          </div>
+          <div class="product-count-badge" id="catalog-count-badge">
+            Showing <strong>12</strong> flagship devices
+          </div>
+        </div>
+
+        <!-- Category Filter Tabs -->
+        <div class="category-tabs-nav">
+          <button class="cat-tab-btn active" data-category="all">⚡ All Flagships</button>
+          <button class="cat-tab-btn" data-category="laptops">💻 Laptops & Computing</button>
+          <button class="cat-tab-btn" data-category="wearables">🥽 Wearables & Spatial</button>
+          <button class="cat-tab-btn" data-category="audio">🎧 Audio & Acoustics</button>
+          <button class="cat-tab-btn" data-category="gaming">🕹️ Gaming & Peripherals</button>
+          <button class="cat-tab-btn" data-category="smart">📡 Smart & Robotics</button>
+        </div>
+
+        <!-- Secondary Filter Controls -->
+        <div class="filter-sub-bar">
+          <div class="filter-left-group">
+            <div class="filter-chip-select">
+              <label for="sort-select">Sort by:</label>
+              <select id="sort-select">
+                <option value="featured">Featured Curations</option>
+                <option value="price-low">Price: Low to High</option>
+                <option value="price-high">Price: High to Low</option>
+                <option value="rating">Top Customer Ratings</option>
+              </select>
+            </div>
+
+            <label class="filter-checkbox-label">
+              <input type="checkbox" id="in-stock-only" />
+              <span>In-Stock Only</span>
+            </label>
+          </div>
+
+          <button class="btn-secondary" style="padding: 0.45rem 1rem; font-size: 0.85rem;" onclick="App.resetCatalogFilters()">
+            Clear Filters
+          </button>
+        </div>
+
+        <!-- Dynamic Product Grid -->
+        <div class="product-grid" id="product-grid">
+          <!-- Populated dynamically by app.js -->
+        </div>
+
+      </section>
+    </div>
+
+    <!-- ==================== VIEW 2: CUSTOMER ORDERS ==================== -->
+    <div id="orders-view-section" style="display: none; max-width: 1100px; margin: 0 auto; padding: 3rem 1.75rem 6rem;">
+      <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 2rem;">
+        <div>
+          <span class="card-cat-label">Client Portal</span>
+          <h2 style="font-size: 2.2rem; font-weight: 800; letter-spacing: -0.5px;">Hardware Deployment History</h2>
+          <p style="color: var(--text-secondary); margin-top: 0.25rem;">Live satellite tracking, invoices, and cleanroom dispatch progress</p>
+        </div>
+        <button class="btn-primary" onclick="App.switchView('store')">Continue Shopping</button>
+      </div>
+
+      <div id="customer-orders-list">
+        <!-- Rendered dynamically by app.js -->
+      </div>
+    </div>
+
+    <!-- ==================== VIEW 3: ADMIN DASHBOARD ==================== -->
+    <div id="admin-view-section" style="display: none;" class="admin-view-container">
+      
+      <!-- Admin Header Bar -->
+      <div class="admin-header-bar">
+        <div>
+          <div style="display: flex; align-items: center; gap: 0.75rem;">
+            <span class="admin-badge-tag">🔒 Vault Administrator Console</span>
+            <span style="font-size: 0.8rem; color: var(--accent-emerald);">● Live Database Synced</span>
+          </div>
+          <h2 style="font-size: 2.2rem; font-weight: 800; margin-top: 0.4rem; letter-spacing: -0.5px;">E-Commerce Operations Center</h2>
+          <p style="color: var(--text-secondary);">Manage inventory, live customer orders, analytics, and SKU metrics in real-time.</p>
+        </div>
+
+        <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+          <button class="btn-secondary" id="admin-mock-order-btn" title="Simulate incoming order">
+            + Simulate Test Order
+          </button>
+          <button class="btn-secondary" id="admin-reset-demo-btn" title="Reset to default seed products">
+            ↺ Reset Demo Data
+          </button>
+          <button class="btn-primary" id="admin-add-product-btn">
+            + Deploy New Product
+          </button>
+        </div>
+      </div>
+
+      <!-- KPI Stat Cards Grid -->
+      <div class="admin-kpi-grid">
+        <div class="kpi-card">
+          <div class="kpi-title">Gross Revenue (YTD)</div>
+          <div class="kpi-value" id="kpi-revenue">$0.00</div>
+          <div class="kpi-delta">▲ +24.8% vs last month</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-title">Total Orders Fulfilled</div>
+          <div class="kpi-value" id="kpi-orders">0</div>
+          <div class="kpi-delta">▲ +12.4% conversion rate</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-title">Active Hardware SKUs</div>
+          <div class="kpi-value" id="kpi-products">0</div>
+          <div class="kpi-delta" style="color: var(--accent-cyan);">● 100% catalog active</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-title">Low Stock Vault Alerts</div>
+          <div class="kpi-value" id="kpi-low-stock">0</div>
+          <div class="kpi-delta" style="color: var(--accent-amber);">Items with ≤ 5 units</div>
+        </div>
+      </div>
+
+      <!-- Real-Time SVG Analytics Charts -->
+      <div class="admin-charts-grid">
+        <div class="chart-panel-card">
+          <div class="chart-panel-header">
+            <div>
+              <h4>7-Day Revenue Trajectory ($ USD)</h4>
+              <p style="color: var(--text-muted); font-size: 0.82rem;">Real-time cleanroom sales volume</p>
+            </div>
+            <span style="font-size: 0.8rem; font-weight: 700; color: var(--accent-cyan); background: rgba(0,242,254,0.1); padding: 3px 8px; border-radius: 6px;">Live Feed</span>
+          </div>
+          <div id="revenue-chart-svg" style="height: 220px; width: 100%;"></div>
+        </div>
+
+        <div class="chart-panel-card">
+          <div class="chart-panel-header">
+            <div>
+              <h4>Category Volume Share</h4>
+              <p style="color: var(--text-muted); font-size: 0.82rem;">Inventory distribution breakdown</p>
+            </div>
+          </div>
+          <div style="display: flex; align-items: center; justify-content: center; margin-bottom: 1rem;" id="category-chart-svg"></div>
+          <div id="category-chart-legend"></div>
+        </div>
+      </div>
+
+      <!-- Admin Tab Navigation -->
+      <div class="admin-tab-nav">
+        <div class="admin-nav-item active" data-tab="inventory">Product Inventory Management (CRUD)</div>
+        <div class="admin-nav-item" data-tab="orders">Customer Orders & Status Pipeline</div>
+      </div>
+
+      <!-- TAB 1: Product Inventory Table -->
+      <div id="admin-tab-inventory">
+        <div class="table-responsive">
+          <table class="custom-data-table">
+            <thead>
+              <tr>
+                <th>Product & SKU</th>
+                <th>Category</th>
+                <th>Vault Price</th>
+                <th>Current Stock</th>
+                <th>Inventory Status</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="admin-inventory-tbody">
+              <!-- Rendered dynamically by admin.js -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- TAB 2: Orders Management Pipeline Table -->
+      <div id="admin-tab-orders" style="display: none;">
+        <div class="table-responsive">
+          <table class="custom-data-table">
+            <thead>
+              <tr>
+                <th>Order ID</th>
+                <th>Client Details</th>
+                <th>Order Date</th>
+                <th>Payload</th>
+                <th>Total Value</th>
+                <th>Fulfillment Status</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody id="admin-orders-tbody">
+              <!-- Rendered dynamically by admin.js -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </div>
+
+  </main>
+
+  <!-- ==================== SLIDE-OVER CART DRAWER ==================== -->
+  <div class="drawer-backdrop" id="cart-drawer-backdrop"></div>
+  <aside class="cart-drawer" id="cart-drawer">
+    
+    <div class="drawer-header">
+      <div class="drawer-title-wrap">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color: var(--accent-cyan);">
+          <circle cx="8" cy="21" r="1"></circle>
+          <circle cx="19" cy="21" r="1"></circle>
+          <path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"></path>
+        </svg>
+        <h3>Your Vault Cart</h3>
+      </div>
+      <button class="drawer-close-btn" id="cart-close-btn" title="Close Cart">&times;</button>
+    </div>
+
+    <!-- Free Shipping Progress Tracker -->
+    <div class="free-shipping-tracker" id="cart-shipping-tracker">
+      <!-- Injected by app.js -->
+    </div>
+
+    <!-- Cart Item List Container -->
+    <div class="cart-items-container" id="cart-items-container">
+      <!-- Items dynamically injected -->
+    </div>
+
+    <!-- Drawer Footer & Checkout Controls -->
+    <div class="drawer-footer">
+      <!-- Applied Coupon Badge -->
+      <div class="active-coupon-badge" id="active-coupon-display" style="display: none;"></div>
+
+      <!-- Coupon Promo Code Input -->
+      <div class="coupon-input-wrap">
+        <input type="text" id="coupon-input" placeholder="Promo code (e.g. NOVAFIRST)" />
+        <button class="coupon-apply-btn" id="coupon-apply-btn">Apply</button>
+      </div>
+
+      <!-- Cost Breakdown -->
+      <div class="bill-summary" id="cart-bill-summary">
+        <!-- Rendered dynamically -->
+      </div>
+
+      <!-- Proceed to Checkout Button -->
+      <button class="drawer-checkout-btn" id="cart-checkout-btn">
+        <span>Proceed To Secure Checkout</span>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <path d="M5 12h14"></path>
+          <path d="m12 5 7 7-7 7"></path>
+        </svg>
+      </button>
+    </div>
+
+  </aside>
+
+  <!-- ==================== MODAL 1: MULTI-STEP CHECKOUT ==================== -->
+  <div class="modal-overlay" id="checkout-modal">
+    <div class="modal-container">
+      <div class="modal-header">
+        <h3>Encrypted Quantum Checkout</h3>
+        <button class="modal-close-btn modal-close-trigger">&times;</button>
+      </div>
+      <div class="modal-body">
+        
+        <!-- Step Indicator -->
+        <div class="checkout-steps-bar">
+          <div class="step-indicator active" id="step-ind-1">
+            <div class="step-circle">1</div>
+            <span>Shipping Logistics</span>
+          </div>
+          <div style="width: 40px; height: 1px; background: var(--border-subtle);"></div>
+          <div class="step-indicator" id="step-ind-2">
+            <div class="step-circle">2</div>
+            <span>Payment Authorization</span>
+          </div>
+        </div>
+
+        <!-- STEP 1: SHIPPING & LOGISTICS -->
+        <div id="checkout-step-1">
+          <div class="form-grid-2">
+            <div class="form-group">
+              <label>Full Legal Name</label>
+              <input type="text" class="form-control" id="checkout-name" value="Marcus Vance" placeholder="Jane Doe" required />
+            </div>
+            <div class="form-group">
+              <label>Work / Personal Email</label>
+              <input type="email" class="form-control" id="checkout-email" value="marcus.v@neuralgrid.io" placeholder="jane@example.com" required />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>Street Address</label>
+            <input type="text" class="form-control" id="checkout-address" value="742 Innovation Way, Suite 400" placeholder="123 Tech Blvd" required />
+          </div>
+
+          <div class="form-grid-2">
+            <div class="form-group">
+              <label>City</label>
+              <input type="text" class="form-control" id="checkout-city" value="San Francisco" placeholder="San Francisco" required />
+            </div>
+            <div class="form-group">
+              <label>State / Region</label>
+              <input type="text" class="form-control" id="checkout-state" value="CA" placeholder="California" />
+            </div>
+          </div>
+
+          <div class="form-grid-2">
+            <div class="form-group">
+              <label>Postal / ZIP Code</label>
+              <input type="text" class="form-control" id="checkout-zip" value="94107" placeholder="94107" required />
+            </div>
+            <div class="form-group">
+              <label>Country</label>
+              <input type="text" class="form-control" id="checkout-country" value="United States" />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>Secure Contact Number</label>
+            <input type="tel" class="form-control" id="checkout-phone" value="+1 (555) 382-9912" />
+          </div>
+
+          <label style="font-size: 0.82rem; font-weight: 700; color: var(--text-secondary); text-transform: uppercase;">
+            Select Cleanroom Fulfillment Logistics:
+          </label>
+          <div class="shipping-options-grid">
+            <div class="shipping-card selected" data-tier="standard" onclick="App.selectShippingTier('standard')">
+              <div class="shipping-card-title">Standard Logistics</div>
+              <div class="shipping-card-time">3-5 Business Days</div>
+              <div class="shipping-card-price">$19.00 (Free over $500)</div>
+            </div>
+            <div class="shipping-card" data-tier="express" onclick="App.selectShippingTier('express')">
+              <div class="shipping-card-title">Priority Air Express</div>
+              <div class="shipping-card-time">1-2 Business Days</div>
+              <div class="shipping-card-price">$35.00</div>
+            </div>
+            <div class="shipping-card" data-tier="drone" onclick="App.selectShippingTier('drone')">
+              <div class="shipping-card-title">Hyperloop Drone 8K</div>
+              <div class="shipping-card-time">Guaranteed by 10 AM</div>
+              <div class="shipping-card-price">$49.00</div>
+            </div>
+          </div>
+
+          <div style="display: flex; justify-content: flex-end; margin-top: 1.5rem;">
+            <button class="btn-primary" onclick="App.proceedToPayment()">
+              Continue to Payment & Review
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M5 12h14"></path>
+                <path d="m12 5 7 7-7 7"></path>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- STEP 2: PAYMENT GATEWAY SIMULATION -->
+        <div id="checkout-step-2" style="display: none;">
+          
+          <!-- Payment Method Selector Tabs -->
+          <div class="payment-tabs">
+            <button class="payment-tab-btn active" data-method="card" onclick="App.selectPaymentMethod('card')">
+              💳 Credit / Debit Card
+            </button>
+            <button class="payment-tab-btn" data-method="qr" onclick="App.selectPaymentMethod('qr')">
+              📱 Instant QR / UPI
+            </button>
+            <button class="payment-tab-btn" data-method="wallet" onclick="App.selectPaymentMethod('wallet')">
+              ⚡ NovaPay / Apple Pay
+            </button>
+          </div>
+
+          <!-- OPTION 1: 3D Credit Card Simulation -->
+          <div id="pay-card-section">
+            <div class="credit-card-container">
+              <div class="credit-card-inner" id="credit-card-inner">
+                
+                <!-- Front Face -->
+                <div class="card-face card-front">
+                  <div style="display: flex; justify-content: space-between; align-items: center;">
+                    <div class="card-chip"></div>
+                    <span class="card-brand-logo">NOVAPAY // VISA</span>
+                  </div>
+                  <div class="card-number-preview" id="preview-card-num">4242 •••• •••• 4242</div>
+                  <div class="card-meta-preview">
+                    <div>
+                      <span style="font-size: 0.65rem; color: #94a3b8;">Cardholder</span>
+                      <span class="val" id="preview-card-name">MARCUS VANCE</span>
+                    </div>
+                    <div>
+                      <span style="font-size: 0.65rem; color: #94a3b8;">Expires</span>
+                      <span class="val" id="preview-card-exp">12/28</span>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Back Face -->
+                <div class="card-face card-back">
+                  <div class="card-black-stripe"></div>
+                  <div class="card-cvv-box">
+                    <span style="font-size: 0.7rem; color: #94a3b8; margin-bottom: 4px;">Security CVV</span>
+                    <div class="card-cvv-strip" id="preview-card-cvv">849</div>
+                  </div>
+                  <div style="padding: 0 1.5rem; font-size: 0.65rem; color: #64748b; text-align: center;">
+                    Tokenized by NovaTech Quantum Encryption HSM.
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+            <!-- Card Form Inputs -->
+            <div class="form-group">
+              <label>Card Number</label>
+              <input type="text" class="form-control" id="cc-number" value="4242 8849 2019 4242" maxlength="19" placeholder="4242 •••• •••• ••••" />
+            </div>
+
+            <div class="form-grid-2">
+              <div class="form-group">
+                <label>Cardholder Name</label>
+                <input type="text" class="form-control" id="cc-name" value="Marcus Vance" placeholder="Full name on card" />
+              </div>
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem;">
+                <div class="form-group">
+                  <label>Expiry (MM/YY)</label>
+                  <input type="text" class="form-control" id="cc-exp" value="12/28" maxlength="5" placeholder="12/28" />
+                </div>
+                <div class="form-group">
+                  <label>CVV / CVC</label>
+                  <input type="password" class="form-control" id="cc-cvv" value="849" maxlength="4" placeholder="849" />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- OPTION 2: QR Code Payment -->
+          <div id="pay-qr-section" style="display: none;">
+            <div class="qr-pay-wrap">
+              <div class="qr-placeholder-box">
+                <!-- SVG Stylized Crisp QR Code -->
+                <svg width="150" height="150" viewBox="0 0 100 100" fill="#07090e">
+                  <!-- Outer corners -->
+                  <rect x="5" y="5" width="30" height="30" rx="4" fill="none" stroke="#07090e" stroke-width="6" />
+                  <rect x="13" y="13" width="14" height="14" rx="2" fill="#07090e" />
+                  <rect x="65" y="5" width="30" height="30" rx="4" fill="none" stroke="#07090e" stroke-width="6" />
+                  <rect x="73" y="13" width="14" height="14" rx="2" fill="#07090e" />
+                  <rect x="5" y="65" width="30" height="30" rx="4" fill="none" stroke="#07090e" stroke-width="6" />
+                  <rect x="13" y="73" width="14" height="14" rx="2" fill="#07090e" />
+                  <!-- Inner bits -->
+                  <rect x="45" y="10" width="8" height="8" />
+                  <rect x="45" y="25" width="8" height="8" />
+                  <rect x="45" y="45" width="10" height="10" fill="#00f2fe" />
+                  <rect x="25" y="45" width="8" height="8" />
+                  <rect x="65" y="45" width="8" height="8" />
+                  <rect x="65" y="65" width="12" height="12" />
+                  <rect x="80" y="80" width="12" height="12" />
+                  <rect x="45" y="65" width="8" height="8" />
+                  <rect x="45" y="80" width="8" height="8" />
+                </svg>
+              </div>
+              <h4 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 0.25rem;">Scan with any UPI / Web3 Wallet</h4>
+              <p style="font-size: 0.82rem; color: var(--text-muted); margin-bottom: 0.75rem;">Supported by Apple Pay, Google Pay, Revolut, and Solana Pay</p>
+              <div style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--accent-cyan); background: rgba(0,242,254,0.1); padding: 4px 10px; border-radius: 6px; display: inline-block;">
+                ID: pay.novatech@vault.sol
+              </div>
+            </div>
+          </div>
+
+          <!-- OPTION 3: NovaPay Wallet -->
+          <div id="pay-wallet-section" style="display: none;">
+            <div style="text-align: center; padding: 2.5rem; background: rgba(255,255,255,0.02); border: 1px dashed var(--border-subtle); border-radius: var(--radius-md);">
+              <div style="font-size: 2.5rem; margin-bottom: 1rem;">⚡</div>
+              <h4 style="font-size: 1.25rem; font-weight: 800; margin-bottom: 0.5rem;">One-Click Biometric NovaPay</h4>
+              <p style="color: var(--text-secondary); font-size: 0.88rem; max-width: 440px; margin: 0 auto 1.5rem;">
+                Authenticate seamlessly with Windows Hello, Touch ID, or Face ID with zero card entry.
+              </p>
+              <button class="btn-primary" style="margin: 0 auto;" onclick="App.submitPayment()">
+                Pay with Biometrics
+              </button>
+            </div>
+          </div>
+
+          <!-- Order Summary in Step 2 -->
+          <div style="margin-top: 2rem; background: rgba(255,255,255,0.02); border: 1px solid var(--border-subtle); border-radius: var(--radius-md); padding: 1.25rem;" id="checkout-bill-preview">
+            <!-- Rendered by app.js -->
+          </div>
+
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 1.75rem;">
+            <button class="btn-secondary" onclick="App.backToShipping()">
+              ← Back to Logistics
+            </button>
+            <button class="btn-primary" id="submit-pay-btn" onclick="App.submitPayment()">
+              Complete Order & Authorize
+            </button>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== MODAL 2: ORDER CONFIRMATION ==================== -->
+  <div class="modal-overlay" id="order-confirmation-modal">
+    <div class="modal-container" style="max-width: 720px;">
+      <div class="modal-header">
+        <h3>Deployment Order Status</h3>
+        <button class="modal-close-btn modal-close-trigger">&times;</button>
+      </div>
+      <div class="modal-body" id="order-confirmation-details">
+        <!-- Rendered dynamically -->
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== MODAL 3: PRINTABLE INVOICE ==================== -->
+  <div class="modal-overlay" id="invoice-modal">
+    <div class="modal-container" style="max-width: 840px;">
+      <div class="modal-header">
+        <h3>Official Hardware Invoice</h3>
+        <button class="modal-close-btn modal-close-trigger">&times;</button>
+      </div>
+      <div class="modal-body" id="invoice-content">
+        <!-- Rendered dynamically -->
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== MODAL 4: QUICK VIEW / PRODUCT DETAILS ==================== -->
+  <div class="modal-overlay" id="quickview-modal">
+    <div class="modal-container" style="max-width: 1000px;">
+      <div class="modal-header">
+        <h3>Architectural Specifications</h3>
+        <button class="modal-close-btn modal-close-trigger">&times;</button>
+      </div>
+      <div class="modal-body" id="quickview-content">
+        <!-- Rendered dynamically -->
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== MODAL 5: ADMIN ADD / EDIT PRODUCT ==================== -->
+  <div class="modal-overlay" id="admin-product-modal">
+    <div class="modal-container" style="max-width: 720px;">
+      <div class="modal-header">
+        <h3 id="admin-form-modal-title">Deploy New Product to Vault</h3>
+        <button class="modal-close-btn modal-close-trigger">&times;</button>
+      </div>
+      <div class="modal-body">
+        <form id="admin-product-form">
+          
+          <div class="form-group">
+            <label>Product Title / Model</label>
+            <input type="text" class="form-control" id="prod-name" placeholder="e.g. Apex Quantum Wireless Mouse" required />
+          </div>
+
+          <div class="form-grid-2">
+            <div class="form-group">
+              <label>Category</label>
+              <select class="form-control" id="prod-category">
+                <option value="laptops">Laptops & Computing</option>
+                <option value="wearables">Wearables & Spatial</option>
+                <option value="audio">Audio & Acoustics</option>
+                <option value="gaming">Gaming & Peripherals</option>
+                <option value="smart">Smart & Robotics</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Featured Tag (e.g. Flagship, Hot)</label>
+              <input type="text" class="form-control" id="prod-tag" placeholder="Flagship" />
+            </div>
+          </div>
+
+          <div class="form-grid-2">
+            <div class="form-group">
+              <label>Vault Price ($ USD)</label>
+              <input type="number" step="0.01" class="form-control" id="prod-price" placeholder="1299.00" required />
+            </div>
+            <div class="form-group">
+              <label>Original Price (Optional strikethrough)</label>
+              <input type="number" step="0.01" class="form-control" id="prod-orig-price" placeholder="1499.00" />
+            </div>
+          </div>
+
+          <div class="form-grid-2">
+            <div class="form-group">
+              <label>Inventory Units</label>
+              <input type="number" class="form-control" id="prod-stock" value="10" min="0" required />
+            </div>
+            <div class="form-group">
+              <label>Quick Image Preset</label>
+              <select class="form-control" id="prod-image-preset">
+                <option value="">Custom Image URL below</option>
+                <option value="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=1000&q=80">Laptop Workstation</option>
+                <option value="https://images.unsplash.com/photo-1593508512255-86ab42a8e620?auto=format&fit=crop&w=1000&q=80">Spatial Headset</option>
+                <option value="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=1000&q=80">Audiophile Headphones</option>
+                <option value="https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=1000&q=80">Titanium Smartwatch</option>
+                <option value="https://images.unsplash.com/photo-1615663245857-ac93bb7c39e7?auto=format&fit=crop&w=1000&q=80">Magnesium Mouse</option>
+                <option value="https://images.unsplash.com/photo-1587829741301-dc798b83add3?auto=format&fit=crop&w=1000&q=80">Mechanical Keyboard</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>Image URL</label>
+            <div style="display: flex; gap: 0.75rem; align-items: center;">
+              <input type="url" class="form-control" id="prod-image-url" placeholder="https://images.unsplash.com/..." required />
+              <img id="prod-img-preview" src="" alt="preview" style="width: 44px; height: 44px; border-radius: 6px; object-fit: cover; background: #111;" />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>Short Summary (1 Sentence)</label>
+            <input type="text" class="form-control" id="prod-short-desc" placeholder="Compact ultralight titanium workstation." />
+          </div>
+
+          <div class="form-group">
+            <label>Full Technical Description</label>
+            <textarea class="form-control" id="prod-desc" rows="3" placeholder="Detailed architectural description..."></textarea>
+          </div>
+
+          <div style="display: flex; justify-content: flex-end; gap: 1rem; margin-top: 1.5rem;">
+            <button type="button" class="btn-secondary modal-close-trigger">Cancel</button>
+            <button type="submit" class="btn-primary" id="admin-form-submit-btn">Save Product</button>
+          </div>
+
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Container -->
+  <div class="toast-container" id="toast-container"></div>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-col">
+        <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem;">
+          <div class="brand-icon" style="width: 32px; height: 32px;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+              <polyline points="2 17 12 22 22 17"></polyline>
+              <polyline points="2 12 12 17 22 12"></polyline>
+            </svg>
+          </div>
+          <span style="font-size: 1.25rem; font-weight: 800; color: #fff;">NovaTech Labs</span>
+        </div>
+        <p style="color: var(--text-secondary); font-size: 0.88rem; line-height: 1.6; max-width: 340px;">
+          Pioneering next-generation quantum computing, spatial computing optics, and audiophile acoustics for researchers, developers, and boundary pushers globally.
+        </p>
+      </div>
+
+      <div class="footer-col">
+        <h5>Hardware Series</h5>
+        <ul>
+          <li><a href="#" onclick="App.activeCategory='laptops'; App.renderCatalog();">QuantumBook Laptops</a></li>
+          <li><a href="#" onclick="App.activeCategory='wearables'; App.renderCatalog();">VisionSphere Spatial</a></li>
+          <li><a href="#" onclick="App.activeCategory='audio'; App.renderCatalog();">CyberSound Acoustics</a></li>
+          <li><a href="#" onclick="App.activeCategory='gaming'; App.renderCatalog();">Esports Ultralight Mice</a></li>
+          <li><a href="#" onclick="App.activeCategory='smart'; App.renderCatalog();">Cinematic Drone Fleets</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h5>Platform & Logistics</h5>
+        <ul>
+          <li><a href="#" onclick="App.switchView('orders')">Real-Time Order Tracking</a></li>
+          <li><a href="#" onclick="App.switchView('admin')">Admin Operations Portal</a></li>
+          <li><a href="#" onclick="App.openCartDrawer()">Vault Cart Inspection</a></li>
+          <li><a href="#" onclick="App.showToast('QuantumCare warranty active on all serials', 'info')">QuantumCare Warranty</a></li>
+          <li><a href="#" onclick="App.showToast('Cleanroom ISO-9001 certified dispatch', 'info')">Cleanroom Dispatch</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h5>Cryptographic Security</h5>
+        <div style="font-size: 0.82rem; color: var(--text-muted); line-height: 1.6;">
+          Zero-knowledge vault tokens.<br />
+          PCI-DSS Level 1 compliant gateway simulation.<br />
+          256-bit AES encryption across all channels.<br />
+          <span style="color: var(--accent-emerald); font-weight: 700;">● Network Status: 100% Operational</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div>&copy; 2026 NovaTech Corporation. All rights reserved. Built with high-performance Vanilla Web Architecture.</div>
+      <div style="display: flex; gap: 1.5rem;">
+        <a href="#" style="color: var(--text-muted);">Terms of Protocol</a>
+        <a href="#" style="color: var(--text-muted);">Privacy Encryption</a>
+        <a href="#" style="color: var(--text-muted);">Security Audit</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/data.js"></script>
+  <script src="js/store.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/admin.js"></script>
+</body>
+</html>

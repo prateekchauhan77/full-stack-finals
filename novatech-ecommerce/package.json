@@ -1,0 +1,20 @@
+{
+  "name": "novatech-ecommerce",
+  "version": "1.0.0",
+  "description": "NovaTech — Next-Generation Hardware & E-Commerce Web Platform",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "keywords": [
+    "ecommerce",
+    "shopping-cart",
+    "checkout",
+    "payment",
+    "admin-dashboard",
+    "vanilla-js"
+  ],
+  "author": "NovaTech Labs",
+  "license": "MIT"
+}
